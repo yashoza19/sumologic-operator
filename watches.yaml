@@ -3,4 +3,7 @@
   version: v1alpha1
   kind: SumologicCollection
   chart: helm-charts/sumologic
+  overrideValues:
+    fluentd.image.repository: '{{ ("$RELATED_IMAGE_FLUENTD" | split ":")._0 }}'
+    fluentd.image.tag: '{{ ("$RELATED_IMAGE_FLUENTD" | split ":")._1 }}'
 #+kubebuilder:scaffold:watch
